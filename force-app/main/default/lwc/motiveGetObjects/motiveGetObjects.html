@@ -1,0 +1,31 @@
+<template>
+	<lightning-card variant="Narrow" title="" icon-name="standard:sObject">
+		<div class="slds-m-horizontal_xx-large">
+			<lightning-combobox name="progress" label="Select Object" value={value} placeholder="Select Object..."
+				options={record} onchange={handleChange}>
+			</lightning-combobox>
+		</div>
+	</lightning-card>
+
+	<lightning-card>
+		<lightning-layout multiple-rows horizontal-align="space">
+
+
+			<lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6"
+				large-device-size="3">
+				<template if:true={childVisible}>
+					<c-motive-create-records obj-name={value} onsenddetailstoparent={get}></c-motive-create-records>
+				</template>
+			</lightning-layout-item>
+
+			<lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6"
+				large-device-size="3">
+				<template if:true={childVisible}>
+					<c-motive-show-records obj-name={value}></c-motive-show-records>
+				</template>
+			</lightning-layout-item>
+
+		</lightning-layout>
+	</lightning-card>
+
+</template>
